@@ -8,23 +8,16 @@
 import UIKit
 
 class FiltroViewController: UIViewController {
-    @IBOutlet var starFilter: UIButton!
-    @IBOutlet var followFilter: UIButton!
-    @IBOutlet var dateFilter: UIButton!
-
-    @IBOutlet var ascendingFilter: UIButton!
-    @IBOutlet var descendingFilter: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let buttons: [UIButton] = [
-            starFilter,
-            followFilter,
-            dateFilter,
-            ascendingFilter,
-            descendingFilter
-        ]
+//        let buttons: [UIButton] = [
+//            starFilter,
+//            followFilter,
+//            dateFilter,
+//            ascendingFilter,
+//            descendingFilter
+//        ]
 
 //        starFilter.addTarget(
 //            self,
@@ -32,17 +25,17 @@ class FiltroViewController: UIViewController {
 //            for: .touchUpInside
 //        )
 
-        for button in buttons {
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-
-            button.addTarget(
-                self,
-                action: #selector(tappedButton),
-                for: .touchUpInside
-            )
-
-            button.isHighlighted = false
-        }
+//        for button in buttons {
+//            button.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+//
+//            button.addTarget(
+//                self,
+//                action: #selector(tappedButton),
+//                for: .touchUpInside
+//            )
+//
+//            button.isHighlighted = false
+//        }
 
     }
 

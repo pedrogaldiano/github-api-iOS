@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4ED61746275FEABF0058BED8 /* FiltroViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ED61745275FEABF0058BED8 /* FiltroViewContainer.xib */; };
 		4EFF7C2F275AB7DE00016E16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF7C2E275AB7DE00016E16 /* AppDelegate.swift */; };
 		4EFF7C31275AB7DE00016E16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF7C30275AB7DE00016E16 /* SceneDelegate.swift */; };
 		4EFF7C38275AB7DF00016E16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EFF7C37275AB7DF00016E16 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4ED61745275FEABF0058BED8 /* FiltroViewContainer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FiltroViewContainer.xib; path = ../../../../../FiltroViewContainer.xib; sourceTree = "<group>"; };
 		4EFF7C2B275AB7DE00016E16 /* github-api-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "github-api-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFF7C2E275AB7DE00016E16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EFF7C30275AB7DE00016E16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				8C4D9B14275ED9BE00A2E3D3 /* FiltroViewController.xib */,
+				4ED61745275FEABF0058BED8 /* FiltroViewContainer.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			files = (
 				8C4D9B16275ED9BE00A2E3D3 /* FiltroViewController.xib in Resources */,
 				8C4D9B1A275EDA4A00A2E3D3 /* DetailViewController.xib in Resources */,
+				4ED61746275FEABF0058BED8 /* FiltroViewContainer.xib in Resources */,
 				4EFF7C38275AB7DF00016E16 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
