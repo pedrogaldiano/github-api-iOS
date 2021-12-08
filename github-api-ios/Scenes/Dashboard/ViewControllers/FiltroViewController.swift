@@ -8,6 +8,8 @@
 import UIKit
 
 class FiltroViewController: UIViewController {
+    var coordinator: DashboardCoordinator?
+
     @IBOutlet var starFilter: UIButton!
     @IBOutlet var followFilter: UIButton!
     @IBOutlet var dateFilter: UIButton!
@@ -47,7 +49,9 @@ class FiltroViewController: UIViewController {
     }
 
     @IBAction func goToMainButton(_ sender: UIButton) {
+        self.coordinator!.start()
         print("Aperto o X")
+
     }
 
     @IBAction func limparFiltroButton(_ sender: UIButton) {

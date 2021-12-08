@@ -9,6 +9,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    var coordinator: DashboardCoordinator?
+
     override var nibName: String? {
         "DetailController"
     }

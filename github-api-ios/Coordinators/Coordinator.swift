@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 class Coordinator {
 
@@ -30,6 +31,10 @@ class Coordinator {
 
     func removeAllChildCoordinators() {
         childCoordinators.removeAll()
+    }
+
+    func getAppCoordinator() -> AppCoordinator? {
+        return childCoordinators.filter {$0 is AppCoordinator == true}.first as? AppCoordinator
     }
 
 }

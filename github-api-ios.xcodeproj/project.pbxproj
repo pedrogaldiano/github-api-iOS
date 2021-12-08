@@ -19,6 +19,8 @@
 		8C4D9B19275EDA4A00A2E3D3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D9B17275EDA4A00A2E3D3 /* DetailViewController.swift */; };
 		8C4D9B1A275EDA4A00A2E3D3 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C4D9B18275EDA4A00A2E3D3 /* DetailViewController.xib */; };
 		8C4D9B1C275EDB1500A2E3D3 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D9B1B275EDB1500A2E3D3 /* Repository.swift */; };
+		8CEFEF5F276010B800BC2E65 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEFEF5D276010B800BC2E65 /* HomeViewController.swift */; };
+		8CEFEF60276010B800BC2E65 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CEFEF5E276010B800BC2E65 /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		8C4D9B17275EDA4A00A2E3D3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8C4D9B18275EDA4A00A2E3D3 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		8C4D9B1B275EDB1500A2E3D3 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		8CEFEF5D276010B800BC2E65 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8CEFEF5E276010B800BC2E65 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 		8C4D9B10275ED82100A2E3D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8C4D9B18275EDA4A00A2E3D3 /* DetailViewController.xib */,
+				8CEFEF5E276010B800BC2E65 /* HomeViewController.xib */,
 				8C4D9B14275ED9BE00A2E3D3 /* FiltroViewController.xib */,
 			);
 			path = Views;
@@ -145,7 +151,7 @@
 			children = (
 				8C4D9B13275ED9BE00A2E3D3 /* FiltroViewController.swift */,
 				8C4D9B17275EDA4A00A2E3D3 /* DetailViewController.swift */,
-				8C4D9B18275EDA4A00A2E3D3 /* DetailViewController.xib */,
+				8CEFEF5D276010B800BC2E65 /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -219,6 +225,7 @@
 				8C4D9B16275ED9BE00A2E3D3 /* FiltroViewController.xib in Resources */,
 				8C4D9B1A275EDA4A00A2E3D3 /* DetailViewController.xib in Resources */,
 				4EFF7C38275AB7DF00016E16 /* Assets.xcassets in Resources */,
+				8CEFEF60276010B800BC2E65 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +262,7 @@
 				8C4D9B19275EDA4A00A2E3D3 /* DetailViewController.swift in Sources */,
 				4EFF7C31275AB7DE00016E16 /* SceneDelegate.swift in Sources */,
 				8122B608275EA7F2007F6603 /* AppCoordinator.swift in Sources */,
+				8CEFEF5F276010B800BC2E65 /* HomeViewController.swift in Sources */,
 				8C4D9B09275EB17E00A2E3D3 /* APIClient.swift in Sources */,
 				8C4D9B1C275EDB1500A2E3D3 /* Repository.swift in Sources */,
 				8122B60B275EAB02007F6603 /* DashboardCoordinator.swift in Sources */,
