@@ -61,7 +61,12 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                         repositoryView.stargazingCount.text = String(self.repositories[values].stargazersCount)
                         repositoryView.followersCount.text = String(self.repositories[values].watchersCount)
 
-                        repositoryView.lastCommitDataInDays.text = self.repositories[values].getLastUpdatedDay() == 0 ? "Today" : String(self.repositories[values].getLastUpdatedDay())
+                        if  self.repositories[values].getLastUpdatedDay() == 0 {
+                            repositoryView.lastCommitDataInDays.text = "Today"
+                        } else {
+                            repositoryView.lastCommitDataInDays.text = String(
+                                self.repositories[values].getLastUpdatedDay())
+                        }
 
                         repositoryView.ownerName = self.repositories[values].ownerName
 
@@ -84,7 +89,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
         if let buttonFilters = coordinator?.filters {
             filterCountLabel.text = String(buttonFilters.count)
-            print("AAEIOU\(buttonFilters)")
             buttonFilters.forEach {
                 $0.addTarget(self, action: #selector(removeFilter), for: .touchUpInside)
 
@@ -102,6 +106,10 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         coordinator?.filtro()
     }
 
+    @objc func goToDetails(_ sender: RepositorioCustomView) {
+        coordinator?.details(sender)
+    }
+
     @IBAction func focusFilterTextField(_ sender: Any) {
         filterTextField.becomeFirstResponder()
     }
@@ -116,8 +124,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
 
-//        print("offsetY: \(offsetY) || contentHeight: \(contentHeight)")
-
         if offsetY > contentHeight - scrollView.frame.height {
             if !moreData {
                 getMoreRepositories()
@@ -131,11 +137,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
     func refreshData() {
         reloadData = true
-        print("Reload dos dados")
-
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-//            repositories = carregarDados()  Fazer uma nova requisição da API considerando os filtros da home
-            print("atualizadoo\n")
             self.reloadData = false
 
         })
@@ -143,17 +145,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
     func getMoreRepositories() {
         moreData = true
-        print("Pegando mais dado..")
-
         paginationCount += 1
-
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-//         let newRepositories = Requisição pro git pegando os próximos n repositórios
-//            self.repositories.append(newRepositories)
-//            print("++ dados\n")
-//            self.moreData = false
-//           self.repositoriesStackView.reloadInputViews() // ele usou um self.tableView.reloadData()
-//        })
         var repositoriesCount = 0
 
         githubRepository.getRepositories(page: paginationCount)
@@ -208,68 +200,5 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                         self.moreData = false
                     }
                 }).disposed(by: disposeViewBag)
-    }
-}
-
-extension HomeViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        activityIndicatorView.isHidden = false
-    }
-
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        activityIndicatorView.isHidden = false
-
-    }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        filterTextField.endEditing(true)
-        super.touchesBegan(touches, with: event)
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        activityIndicatorView.isHidden = true
-    }
-
-}
-
-extension HomeViewController {
-    @objc private func removeFilter(_ sender: UIButton) {
-        sender.isSelected = false
-
-        guard let indexButton = coordinator?.filters.firstIndex(of: sender) else {
-            return
-        }
-
-        coordinator?.filters.remove(at: indexButton)
-
-        guard let countFilters = coordinator?.filters.count else { return }
-
-        filterCountLabel.text = String(countFilters)
-
-        UIView.animate(withDuration: 0.4, delay: 0, options: []) {
-            sender.transform = CGAffineTransform(translationX: 0, y: 20)
-            sender.alpha = 0
-        } completion: { _ in
-            sender.removeFromSuperview()
-        }
-    }
-
-    private func invertBackgroundRepository(_ repositoryView: RepositorioCustomView) {
-        repositoryView.topView.backgroundColor = .white
-
-        repositoryView.bottomView.backgroundColor = UIColor(
-            red: CGFloat(126)/CGFloat(255),
-            green: CGFloat(126)/CGFloat(255),
-            blue: CGFloat(126)/CGFloat(255),
-            alpha: 1
-        )
-
-        repositoryView.totalStarsLabel.textColor = .black
-        repositoryView.repositoryName.textColor = .black
-        repositoryView.stargazingCount.textColor = .black
-    }
-
-    @objc func goToDetails(_ sender: RepositorioCustomView) {
-        coordinator?.details(sender)
     }
 }

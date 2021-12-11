@@ -84,7 +84,6 @@ class FiltroViewController: UIViewController {
     }
 
     @IBAction func applyButton(_ sender: UIButton) {
-        print("aplicando filtro...")
 
         selectedButtons.forEach {
             $0.backgroundColor = .none

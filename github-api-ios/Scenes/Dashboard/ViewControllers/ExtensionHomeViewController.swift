@@ -54,8 +54,4 @@ extension HomeViewController {
         repositoryView.repositoryName.textColor = .black
         repositoryView.stargazingCount.textColor = .black
     }
-
-    @objc func goToDetails(_ sender: Any) {
-        coordinator?.details()
-    }
 }
