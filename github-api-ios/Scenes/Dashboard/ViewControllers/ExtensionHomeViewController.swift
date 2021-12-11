@@ -54,4 +54,62 @@ extension HomeViewController {
         repositoryView.repositoryName.textColor = .black
         repositoryView.stargazingCount.textColor = .black
     }
+
+    func createReposityCustomView(_ repositories: [RepositoryHome], count: Int? = nil) {
+        let counter: Int
+        if count != nil {
+                counter = count!
+        } else {
+            counter = self.repositories.count
+        }
+
+        for values in (0..<counter) {
+
+            let repositoryView = RepositorioCustomView()
+
+            repositoryView.imageIcon.image = UIImage(named: "baixo_risco")
+            repositoryView.repositoryName.text = self.repositories[values].repositoryName
+            repositoryView.forksCount.text = String(self.repositories[values].forksCount)
+            repositoryView.stargazingCount.text = String(self.repositories[values].stargazersCount)
+            repositoryView.followersCount.text = String(self.repositories[values].watchersCount)
+
+            if  self.repositories[values].getLastUpdatedDay() == 0 {
+                repositoryView.lastCommitDataInDays.text = "Today"
+            } else {
+                repositoryView.lastCommitDataInDays.text = String(
+                    self.repositories[values].getLastUpdatedDay())
+            }
+
+            repositoryView.ownerName = self.repositories[values].ownerName
+
+            if values.isMultiple(of: 2) {
+                self.invertBackgroundRepository(repositoryView)
+            }
+
+            repositoryView.translatesAutoresizingMaskIntoConstraints = false
+            self.repositoriesStackView.addArrangedSubview(repositoryView)
+
+            NSLayoutConstraint.activate([
+                repositoryView.heightAnchor.constraint(equalToConstant: 155),
+                repositoryView.widthAnchor.constraint(equalTo: self.repositoriesStackView.widthAnchor)
+            ])
+            repositoryView.addTarget(self, action: #selector(self.goToDetails), for: .touchUpInside)
+        }
+    }
+
+    func initializeRepositories(_ allRepos: Repositories, repositoriesCount: inout Int) {
+        repositoriesCount = allRepos.repositories.count
+            allRepos.repositories.forEach {
+
+                let repositoryHome = RepositoryHome(
+                    repositoryName: $0.repositoryName,
+                    ownerName: $0.ownerName,
+                    stargazersCount: $0.stargazersCount,
+                    watchersCount: $0.watchersCount,
+                    updatedAt: $0.updatedAt,
+                    forksCount: $0.forksCount
+                )
+                self.repositories.append(repositoryHome)
+            }
+    }
 }

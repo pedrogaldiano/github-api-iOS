@@ -33,4 +33,7 @@ class GithubRepository {
         let urlString = baseURLString + "/repos/\(ownerName)/\(repositoryName)/contributors"
         return networkService.execute(url: URL(string: urlString)!)
     }
+    func getRepositoriesByName(repositoryName: String) -> Observable<Repositories> {
+        return networkService.execute(url: URL(string: "\(baseURLString)/search/repositories?q=\(repositoryName)")!)
+    }
 }
